@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/Customer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/restaurant.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Main.gd" type="Script" id=3]
+[ext_resource path="res://scenes/EODSummary.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/global_message.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/GameOver.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Intro.tscn" type="PackedScene" id=7]
+
+[node name="Main" type="Node"]
+script = ExtResource( 3 )
+intro_scene = ExtResource( 7 )
+game_over_scene = ExtResource( 6 )
+customer_scene = ExtResource( 1 )
+EOD_summary_scene = ExtResource( 4 )
+
+[node name="restaurant" parent="." instance=ExtResource( 2 )]
+
+[node name="CustomerTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="CustomerFeedbackTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="GlobalMsg" parent="." instance=ExtResource( 5 )]
+
+[connection signal="award_money" from="." to="restaurant" method="_on_Main_award_money"]
+[connection signal="assembly_area_bun_full" from="restaurant" to="." method="_on_restaurant_assembly_area_bun_full"]
+[connection signal="assembly_area_cheese_full" from="restaurant" to="." method="_on_restaurant_assembly_area_cheese_full"]
+[connection signal="assembly_area_patty_full" from="restaurant" to="." method="_on_restaurant_assembly_area_patty_full"]
+[connection signal="assembly_space_lettuce_full" from="restaurant" to="." method="_on_restaurant_assembly_space_lettuce_full"]
+[connection signal="burger_build_bad" from="restaurant" to="." method="_on_restaurant_burger_build_bad"]
+[connection signal="burger_sold_to_customer" from="restaurant" to="." method="_on_restaurant_burger_sold_to_customer"]
+[connection signal="cooking_area_full" from="restaurant" to="." method="_on_restaurant_cooking_area_full"]
+[connection signal="cutting_board_full" from="restaurant" to="." method="_on_restaurant_cutting_board_full"]
+[connection signal="timeout" from="CustomerTimer" to="." method="_on_CustomerTimer_timeout"]
+[connection signal="timeout" from="CustomerFeedbackTimer" to="." method="_on_CustomerFeedbackTimer_timeout"]

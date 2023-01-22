@@ -1,0 +1,212 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://images/eod_summary.png" type="Texture" id=1]
+[ext_resource path="res://scenes/EODSummary.gd" type="Script" id=2]
+[ext_resource path="res://font/Ritaglio.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 3 )
+
+[sub_resource type="InputEventAction" id=2]
+action = "continue_next_day"
+
+[sub_resource type="ShortCut" id=3]
+shortcut = SubResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 42
+font_data = ExtResource( 3 )
+
+[node name="EODSummary" type="Node2D"]
+position = Vector2( -2, 2 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="EodSummary" type="Sprite" parent="."]
+position = Vector2( 4, -1 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Label" type="Label" parent="EodSummary"]
+margin_left = 44.0
+margin_top = 90.0
+margin_right = 112.0
+margin_bottom = 113.0
+custom_fonts/font = SubResource( 1 )
+text = "EXPENSES:"
+
+[node name="PattiesUsedLabel" type="Label" parent="EodSummary"]
+margin_left = 76.0
+margin_top = 132.0
+margin_right = 305.0
+margin_bottom = 155.0
+custom_fonts/font = SubResource( 1 )
+text = "PATTIES USED: 2 x $5.00 = $10.00"
+
+[node name="Label" type="Label" parent="EodSummary/PattiesUsedLabel"]
+margin_left = 82.0
+margin_top = -19.0
+margin_right = 122.0
+margin_bottom = -5.0
+custom_fonts/font = SubResource( 1 )
+text = "QTY"
+align = 1
+
+[node name="Label2" type="Label" parent="EodSummary/PattiesUsedLabel"]
+margin_left = 119.0
+margin_top = -19.0
+margin_right = 161.0
+margin_bottom = -5.0
+custom_fonts/font = SubResource( 1 )
+text = "COST"
+align = 1
+
+[node name="Label3" type="Label" parent="EodSummary/PattiesUsedLabel"]
+margin_left = 170.0
+margin_top = -19.0
+margin_right = 210.0
+margin_bottom = -5.0
+custom_fonts/font = SubResource( 1 )
+text = "TOTAL"
+
+[node name="BunsUsedLabel" type="Label" parent="EodSummary"]
+margin_left = 77.0
+margin_top = 184.0
+margin_right = 292.0
+margin_bottom = 207.0
+custom_fonts/font = SubResource( 1 )
+text = "BUNS USED: 2 x $5.00 = $10.00"
+
+[node name="Label2" type="Label" parent="EodSummary/BunsUsedLabel"]
+margin_left = 83.0
+margin_top = -18.0
+margin_right = 123.0
+margin_bottom = -4.0
+custom_fonts/font = SubResource( 1 )
+text = "QTY"
+align = 1
+
+[node name="Label3" type="Label" parent="EodSummary/BunsUsedLabel"]
+margin_left = 120.0
+margin_top = -18.0
+margin_right = 162.0
+margin_bottom = -4.0
+custom_fonts/font = SubResource( 1 )
+text = "COST"
+align = 1
+
+[node name="Label4" type="Label" parent="EodSummary/BunsUsedLabel"]
+margin_left = 171.0
+margin_top = -18.0
+margin_right = 212.0
+margin_bottom = -4.0
+custom_fonts/font = SubResource( 1 )
+text = "TOTAL"
+
+[node name="LettuceUsedLabel" type="Label" parent="EodSummary"]
+margin_left = 78.0
+margin_top = 239.0
+margin_right = 310.0
+margin_bottom = 262.0
+custom_fonts/font = SubResource( 1 )
+text = "LETTUCE USED: 2 x $5.00 = $10.00"
+
+[node name="Label" type="Label" parent="EodSummary/LettuceUsedLabel"]
+margin_left = 82.0
+margin_top = -19.0
+margin_right = 122.0
+margin_bottom = -5.0
+custom_fonts/font = SubResource( 1 )
+text = "QTY"
+align = 1
+
+[node name="Label2" type="Label" parent="EodSummary/LettuceUsedLabel"]
+margin_left = 119.0
+margin_top = -19.0
+margin_right = 161.0
+margin_bottom = -5.0
+custom_fonts/font = SubResource( 1 )
+text = "COST"
+align = 1
+
+[node name="Label3" type="Label" parent="EodSummary/LettuceUsedLabel"]
+margin_left = 170.0
+margin_top = -19.0
+margin_right = 210.0
+margin_bottom = -5.0
+custom_fonts/font = SubResource( 1 )
+text = "TOTAL"
+
+[node name="GrandTotalLabel" type="Label" parent="EodSummary"]
+margin_left = 152.0
+margin_top = 287.0
+margin_right = 303.0
+margin_bottom = 310.0
+custom_fonts/font = SubResource( 1 )
+text = "GRAND TOTAL: $30.00"
+
+[node name="RestaurantMoneyLabel" type="Label" parent="EodSummary"]
+margin_left = 55.0
+margin_top = 328.0
+margin_right = 395.0
+margin_bottom = 351.0
+custom_fonts/font = SubResource( 1 )
+text = "RESTAURANT MONEY: $200.00 - $30.00 = $170.00"
+
+[node name="DailyEarnedMoneyLabel" type="Label" parent="EodSummary"]
+margin_left = 433.0
+margin_top = 111.0
+margin_right = 615.0
+margin_bottom = 134.0
+custom_fonts/font = SubResource( 1 )
+text = "DAILY EARNED MONEY: $200"
+
+[node name="EOWCountDownLabel" type="Label" parent="EodSummary"]
+margin_left = 436.0
+margin_top = 220.0
+margin_right = 569.0
+margin_bottom = 243.0
+custom_fonts/font = SubResource( 1 )
+text = "Days left in week: 6"
+
+[node name="RentDueAmountLabel" type="Label" parent="EodSummary"]
+margin_left = 440.0
+margin_top = 247.0
+margin_right = 663.0
+margin_bottom = 270.0
+custom_fonts/font = SubResource( 1 )
+text = "RENT DUE AT END OF WEEK! $1000"
+
+[node name="RentLabel" type="Label" parent="EodSummary"]
+visible = false
+margin_left = 431.0
+margin_top = 215.0
+margin_right = 654.0
+margin_bottom = 229.0
+custom_fonts/font = SubResource( 1 )
+text = "RENT: $1000 - $200 = -$800"
+
+[node name="ConfirmButton" type="Button" parent="."]
+margin_left = 93.0
+margin_top = 392.0
+margin_right = 909.0
+margin_bottom = 470.0
+custom_fonts/font = SubResource( 4 )
+shortcut = SubResource( 3 )
+text = "(space) CONTINUE TO NEXT DAY"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 49.0
+margin_top = 35.0
+margin_right = 911.0
+margin_bottom = 93.0
+custom_fonts/font = SubResource( 5 )
+text = "END OF DAY"
+align = 1
+
+[connection signal="pressed" from="ConfirmButton" to="." method="_on_ConfirmButton_pressed"]
